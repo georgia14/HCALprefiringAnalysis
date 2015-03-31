@@ -1,0 +1,14 @@
+#!/bin/bash
+
+var=1
+#end=2500
+end=9
+
+while [ "$var" != "$end" ]
+do
+  cmsStageIn /store/caf/user/georgia/l1Ntuples_TSGskims/Higgs/HWW/L1Tree_"$var".root /tmp/georgia/L1Ntuples_TSGskims/Higgs/HWW/.
+
+  var=`expr $var + 1`
+done
+
+

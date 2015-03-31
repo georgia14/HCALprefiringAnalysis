@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Framework and 2012 datasets}{3}
+\contentsline {section}{\numberline {3}Level-1 jet triggers}{3}
+\contentsline {section}{\numberline {4}Trigger pre-firing rates in HCAL}{3}
+\contentsline {subsection}{\numberline {4.1}Prefiring rates in HCAL HB/HE}{4}
+\contentsline {subsection}{\numberline {4.2}Prefiring rates in the Forward Calorimeter}{7}
+\contentsline {section}{\numberline {5}Impact of Upgraded Forward Calorimeter}{7}
+\contentsline {section}{\numberline {6}Performance with TSG physics skims}{8}
+\contentsline {section}{\numberline {7}Summary}{8}

@@ -1,0 +1,51 @@
+//
+//  Script depends on the following libraries being loaded:
+//          L1Ntupe_C.so
+//          L1Menu2015_C.so
+//          EvaluateL1Menu_C.so
+//  (The libraries are loaded with init.C)
+//
+//  example:
+//
+//   linux> root init.C
+//   root [1] .x runL1Menu2015.C
+
+// Version 6
+//std::string InputRootFileName="/vols/cms03/georgia/l1ntuples_Run2012C/SingleMu/L1Tree_1_2_qej.root";
+std::string InputRootFileName="1Tree_120_1_PCv.root";
+  //"l1Ntuples_Top_DoubleTop_list.txt";
+
+//l1Ntuples_SMP_W_Z_list.txt";
+//l1Ntuples_Higgs_Htautau_list.txt";
+  //"testlist.txt";
+  //"l1Ntuples_Higgs_Htautau_list.txt"; //testlist.txt";
+  //"l1Ntuples_Higgs_HWW_list.txt";
+  //"testlist.txt";
+  //"l1Ntuples_SMP_W_Z_list.txt";
+  //"l1Ntuples_Higgs_HWW_list.txt";
+  //"testlist.txt";
+//L1Tree_120_1_PCv.root";
+  //"L1Ntuples_Higgs_Htautau_RunD_list.txt";
+  //"L1Ntuples_HWW_MuMu_RunD_list.txt";
+
+L1Ntuple *myNtpl;
+
+test(){
+  
+   gSystem->Exec("date"); //beginning time stamp
+	
+// Instantiate the L1 Menu Evaluation Code and open the ROOT file
+
+   myNtpl = new L1Ntuple;
+   //   myNtpl->Open(InputRootFileName);
+   myNtpl->OpenWithList(InputRootFileName);
+	
+// Turn off Dumping of Events
+//   myL1Menu->SetDumpEvents(0);	
+   myNtpl->prefiringHCAL();
+		
+   //   printf("Job %s ending...",jobTag.Data());	
+   gSystem->Exec("date"); //ending time stamp
+
+   
+}

@@ -1,0 +1,6 @@
+/tmp/georgia/L1Ntuples_TSGskims/Higgs/Htautau/L1Tree_1.root
+/tmp/georgia/L1Ntuples_TSGskims/Higgs/Htautau/L1Tree_2.root
+/tmp/georgia/L1Ntuples_TSGskims/Higgs/Htautau/L1Tree_3.root
+/tmp/georgia/L1Ntuples_TSGskims/Higgs/Htautau/L1Tree_4.root
+/tmp/georgia/L1Ntuples_TSGskims/Higgs/Htautau/L1Tree_5.root
+/tmp/georgia/L1Ntuples_TSGskims/Higgs/Htautau/L1Tree_6.root
