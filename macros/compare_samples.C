@@ -47,6 +47,19 @@ TH3D* readHist3D(TString nameHist,TString nameFile, int rebin)
  hist->SetStats(kFALSE);
  return hist;
 }
+TCanvas* getanotherCanvas(TString name)
+{
+
+  TCanvas* aCanvas = new TCanvas(name,"",292,55,500,465);//,"",181,237,1575,492);
+
+  aCanvas->SetFillColor(0);
+  aCanvas->SetBottomMargin(0.125);
+  aCanvas->SetLeftMargin(0.125);
+  aCanvas->SetFrameFillColor(0);
+  aCanvas->SetFrameBorderMode(0);
+  aCanvas->SetFrameLineWidth(2);
+  return aCanvas;
+}
 
 TCanvas* getaCanvas(TString name)
 {
@@ -141,7 +154,7 @@ TH1D *hTemp(TString ifile, TString dirname, TString hname) {
 
 }
 
-void compare_samples(TString sample="Singlemu", TString mode="rate", Bool_t debug=false) {
+void compare_samples(TString sample="Singlemu", TString mode="rate") {
 
   TString ifile1, ifile2, data;
 
@@ -207,343 +220,7 @@ void compare_samples(TString sample="Singlemu", TString mode="rate", Bool_t debu
 
   setTDRStyle();
 
-  if (debug) {
-
-    TH1D *h_matchDR_early=readHist(dirname+"h_matchDR_early",ifile1,10);
-    TH1D *h_matchDR_central=readHist(dirname+"h_matchDR_central",ifile1,10);
-    TH1D *h_matchDR_early_H=readHist(dirname+"h_matchDR_early_H",ifile1,10);
-    TH1D *h_matchDR_central_H=readHist(dirname+"h_matchDR_central_H",ifile1,10);
-
-    TH1D *h_matchDR_hf_early=readHist(dirname+"h_matchDR_hf_early",ifile1,10);
-    TH1D *h_matchDR_hf_central=readHist(dirname+"h_matchDR_hf_central",ifile1,10);
-    TH1D *h_matchDR_hf_early_H=readHist(dirname+"h_matchDR_hf_early_H",ifile1,10);
-    TH1D *h_matchDR_hf_central_H=readHist(dirname+"h_matchDR_hf_central_H",ifile1,10);
-
-    TH1D *etaJet_e_H=readHist(dirname+"etaJet_early_H",ifile1,2);
-    TH1D *etaJet_c_H=readHist(dirname+"etaJet_central_H",ifile1,2);
-    TH1D *phiJet_e_H=readHist(dirname+"phiJet_early_H",ifile1,2);
-    TH1D *phiJet_c_H=readHist(dirname+"phiJet_central_H",ifile1,2);
-    
-    TH1D *etaJetHF_e_H=readHist(dirname+"etaJetHF_early_H",ifile1,2);
-    TH1D *etaJetHF_c_H=readHist(dirname+"etaJetHF_central_H",ifile1,2);
-    TH1D *phiJetHF_e_H=readHist(dirname+"phiJetHF_early_H",ifile1,2);
-    TH1D *phiJetHF_c_H=readHist(dirname+"phiJetHF_central_H",ifile1,2);
-
-    // HCAL Trigger Primitives info
-    TH2D *ietaJet_iphiJet_central_H=readHist2D(dirname+"ietaJet_iphiJet_central_H",ifile1,0);
-    TH2D *ietaJet_iphiJet_hf_central_H=readHist2D(dirname+"ietaJet_iphiJet_hf_central_H",ifile1,0);
-
-    TH2D *ietaJet_iphiJet_central=readHist2D(dirname+"ietaJet_iphiJet_central",ifile1,0);
-    TH2D *ietaJet_iphiJet_hf_central=readHist2D(dirname+"ietaJet_iphiJet_hf_central",ifile1,0);
-    TH2D *ietaJet_iphiJet=readHist2D(dirname+"ietaJet_iphiJet",ifile1,0);
-    TH2D *ietaJet_iphiJet_hf=readHist2D(dirname+"ietaJet_iphiJet_hf",ifile1,0);
-
- // For L1Jet ET>240 (BX=0)
-    TH1D *ietaTP_H=readHist(dirname+"ietaTP_H",ifile1,0);
-    TH1D *iphiTP_H=readHist(dirname+"iphiTP_H",ifile1,0);
-    TH2D *ietaTP_iphiTP_H=readHist2D(dirname+"ietaTP_iphiTP_H",ifile1,0);
-    TH2D *ietaJet_iphiJet_H=readHist2D(dirname+"ietaJet_iphiJet_H",ifile1,0);
-    TH2D *ietaTP_iphiTP_H_2=readHist2D(dirname+"ietaTP_iphiTP_H_2",ifile1,0);
-
-    TH1D *etTP_H=readHist(dirname+"etTP_H",ifile1,0);
-    TH1D *compEtTP_H=readHist(dirname+"compEtTP_H",ifile1,0);  
-    //HF
-    TH1D *ietaTP_hf_H=readHist(dirname+"ietaTP_hf_H",ifile1,0);
-    TH1D *iphiTP_hf_H=readHist(dirname+"iphiTP_hf_H",ifile1,0);
-    TH2D *ietaTP_iphiTP_hf_H=readHist2D(dirname+"ietaTP_iphiTP_hf_H",ifile1,0);
-    TH2D *ietaJet_iphiJet_hf_H=readHist2D(dirname+"ietaJet_iphiJet_hf_H",ifile1,0);
-    TH2D *ietaTP_iphiTP_hf_H_2=readHist2D(dirname+"ietaTP_iphiTP_hf_H_2",ifile1,0);
-
-    // For L1Jet ET>240 (BX=-1)
-    TH1D *ietaTP_Hs=readHist(dirname+"ietaTP_Hs",ifile1,0);
-    TH1D *iphiTP_Hs=readHist(dirname+"iphiTP_Hs",ifile1,0);
-    TH2D *ietaTP_iphiTP_Hs=readHist2D(dirname+"ietaTP_iphiTP_Hs",ifile1,0);
-    TH2D *ietaJet_iphiJet_Hs=readHist2D(dirname+"ietaJet_iphiJet_Hs",ifile1,0);
-    TH2D *ietaTP_iphiTP_Hs_2=readHist2D(dirname+"ietaTP_iphiTP_Hs_2",ifile1,0);
-    TH1D *etTP_Hs=readHist(dirname+"etTP_Hs",ifile1,0);
-    TH1D *compEtTP_Hs=readHist(dirname+"compEtTP_Hs",ifile1,0);  
-    //HF
-    TH1D *ietaTP_hf_Hs=readHist(dirname+"ietaTP_hf_Hs",ifile1,0);
-    TH1D *iphiTP_hf_Hs=readHist(dirname+"iphiTP_hf_Hs",ifile1,0);
-    TH2D *ietaTP_iphiTP_hf_Hs=readHist2D(dirname+"ietaTP_iphiTP_hf_Hs",ifile1,0);
-    TH2D *ietaJet_iphiJet_hf_Hs=readHist2D(dirname+"ietaJet_iphiJet_hf_Hs",ifile1,0);
-    TH2D *ietaTP_iphiTP_hf_Hs_2=readHist2D(dirname+"ietaTP_iphiTP_hf_Hs_2",ifile1,0);
-
-    // For all Events
-    TH1D *ietaTP=readHist(dirname+"ietaTP",ifile1,0);
-    TH1D *iphiTP=readHist(dirname+"iphiTP",ifile1,0);
-    TH2D *ietaTP_iphiTP=readHist2D(dirname+"ietaTP_iphiTP",ifile1,0);
-    TH2D *ietaTP_iphiTP_2=readHist2D(dirname+"ietaTP_iphiTP_2",ifile1,0);
-
-    gStyle->SetPalette(1);
-
-    TCanvas *tp1=getaCanvas("tp1");
-    tp1->Divide(2,1);
-
-    tp1->cd(1); 
-    TLegend *leg = legend();
-    leg->SetHeader("HCAL TPs");
-    leg->AddEntry(ietaTP,"All events","LF");
-    leg->AddEntry(ietaTP_H,"Events with BX=0 L1jet of ET>240","LF");
-    // leg->AddEntry(ietaTP_hf_H,"Events with BX=-1 fwd L1jet ET>240","LF");
-
-    ietaTP->Scale(1./ietaTP->Integral());
-    ietaTP_H->Scale(1./ietaTP_H->Integral());
-    ietaTP_hf_H->Scale(1./ietaTP_hf_H->Integral());
-
-    ietaTP->Draw("EHIST"); ietaTP->SetLineColor(1);
-    ietaTP_H->Draw("EHISTSAME");  ietaTP_H->SetLineWidth(2);
-    ietaTP->SetTitle(";hcalTP i#eta;a.u.");
-    //  ietaTP_hf_H->Draw("EHISTSAME");  ietaTP_hf_H->SetLineWidth(2);
-    //  ietaTP_hf_H->SetLineColor(3);
-
-    leg->Draw("SAME");
-    
-    tp1->cd(2); 
-    TLegend *leg = legend();
-    leg->SetHeader("HCAL TPs");
-    leg->AddEntry(iphiTP,"All events","LF");
-    leg->AddEntry(iphiTP_H,"Events with BX=0 L1jet ET>240","LF");
-    //  leg->AddEntry(iphiTP_hf_H,"Events with BX=-1 fwd L1jet ET>240","LF");
-
-    iphiTP->Scale(1./iphiTP->Integral());
-    iphiTP_H->Scale(1./iphiTP_H->Integral());
-    iphiTP_hf_H->Scale(1./iphiTP_hf_H->Integral());
-
-    //  iphiTP->Draw("EHIST"); iphiTP->SetLineColor(1);
-    iphiTP->Draw("EHIST");  iphiTP_H->SetLineWidth(2);
-    iphiTP_H->Draw("EHISTSAME"); iphiTP->SetLineColor(1);
-    iphiTP_H->SetTitle(";hcalTP i#phi;a.u.");
-    //  iphiTP_hf_H->Draw("EHISTSAME");  iphiTP_hf_H->SetLineWidth(2);
-    //  iphiTP_hf_H->SetLineColor(3);
-
-    leg->Draw("SAME");
-
-    //return;
-
-
-    TCanvas *tp3=getaCanvas("tp3");
-    tp3->Divide(2,1);
-
-    tp3->cd(1); 
-    TLegend *leg = legend();
-    leg->SetHeader("hcalTPs for events with BX=0 Jets of saturated E_{T}");
-
-    ietaTP_iphiTP_H->Draw("ZCOL");
-    ietaTP_iphiTP_H->SetTitle(";hcalTP i#eta;hcalTP i#phi");
-
-    leg->Draw("SAME");
-
-    tp3->cd(2);
-    TLegend *leg = legend();
-    leg->SetHeader("hcalTPs for events with BX=0 Jets of saturated E_{T}");
-
-    ietaTP_iphiTP_H_2->Draw("ZCOL");
-    ietaTP_iphiTP_H_2->SetTitle(";hcalTP i#eta;hcalTP i#phi");
-    leg->Draw("SAME");
-
-
-    TCanvas *tp333=getaCanvas("tp333");
-    tp333->Divide(2,1);
-
-    tp333->cd(1); 
-    TLegend *leg = legend();
-    leg->SetHeader("hcalTPs for events with BX=0 HFJets of saturated E_{T}");
-
-    ietaTP_iphiTP_hf_H->Draw("ZCOL");
-    ietaTP_iphiTP_hf_H->SetTitle(";hcalTP i#eta;hcalTP i#phi");
-
-    leg->Draw("SAME");
-
-    tp333->cd(2);
-    TLegend *leg = legend();
-    leg->SetHeader("hcalTPs for events with BX=0 HFJets of saturated E_{T}");
-
-    ietaTP_iphiTP_hf_H_2->Draw("ZCOL");
-    ietaTP_iphiTP_hf_H_2->SetTitle(";hcalTP i#eta;hcalTP i#phi");
-    leg->Draw("SAME");
-
-
-    TCanvas *tp33=getaCanvas("tp33");
-    tp33->Divide(3,1);
-
-
-    tp33->cd(1); 
-    TLegend *leg = legend();
-    leg->SetHeader("hcalTPs for events with a BX=0 Jet of saturated E_{T}");
-
-    ietaTP_iphiTP_H->Draw("ZCOL");
-    ietaTP_iphiTP_H->SetTitle(";hcalTP i#eta;hcalTP i#phi");
-
-    //  leg->Draw("SAME");
-
-    tp33->cd(2);
-    TLegend *leg = legend();
-    leg->SetHeader("HB/HE: BX=0 Jets with saturated E_{T}");
-
-    ietaJet_iphiJet_central_H->Draw("ZCOL");
-    ietaJet_iphiJet_central_H->SetTitle(";L1Jet i#eta;L1Jet i#phi");
-
-    leg->Draw("SAME");
-
-    tp33->cd(3);
-    TLegend *leg = legend();
-    leg->SetHeader("HB/HE: BX=-1 Jets with saturated E_{T}");
-
-    ietaJet_iphiJet_Hs->Draw("ZCOL");
-    ietaJet_iphiJet_Hs->SetTitle(";L1Jet i#eta;L1Jet i#phi");
-
-    leg->Draw("SAME");
-
-    //    return;
-    
-    TCanvas *tp334=getaCanvas("tp334");
-    tp334->Divide(3,1);
-
-    tp334->cd(1); 
-    TLegend *leg = legend();
-    leg->SetHeader("hcalTPs for events with BX=0 HFJets of saturated E_{T}");
-
-    ietaTP_iphiTP_hf_H->Draw("ZCOL");
-    ietaTP_iphiTP_hf_H->SetTitle(";hcalTP i#eta;hcalTP i#phi");
-
-    // leg->Draw("SAME");
-
-    tp334->cd(2);
-    TLegend *leg = legend();
-    leg->SetHeader("HF: BX=0 Jets with saturated E_{T}");
-
-    ietaJet_iphiJet_hf_central_H->Draw("ZCOL");
-    ietaJet_iphiJet_hf_central_H->SetTitle(";L1 fwdJet i#eta;L1 fwdJet i#phi");
-
-    leg->Draw("SAME");
-
-    tp334->cd(3);
-    TLegend *leg = legend();
-    leg->SetHeader("HF: BX=-1 Jets with saturated E_{T}");
-
-    ietaJet_iphiJet_hf_Hs->Draw("ZCOL");
-    ietaJet_iphiJet_hf_Hs->SetTitle(";L1 fwdJet i#eta;L1 fwdJet i#phi");
-
-    leg->Draw("SAME");
-    
-    // return;
-    // All HF Jets: ieta/iphi map
-    TCanvas *ihf1=getaCanvas("ihf1");
-    ihf1->Divide(2,1);
-
-    ihf1->cd(1);
-    TLegend *leg = legend();
-    leg->SetHeader("HF: BX=0 Jets");
-
-    ietaJet_iphiJet_hf_central->Draw("ZCOL");
-    ietaJet_iphiJet_hf_central->SetTitle(";L1 fwdJet i#eta;L1 fwdJet i#phi");
-
-    leg->Draw("SAME");
-
-    ihf1->cd(2);
-    TLegend *leg = legend();
-    leg->SetHeader("HF: BX=-1 Jets");
-
-    ietaJet_iphiJet_hf->Draw("ZCOL");
-    ietaJet_iphiJet_hf->SetTitle(";L1 fwdJet i#eta;L1 fwdJet i#phi");
-
-    leg->Draw("SAME");
-
-     // All HBHE Jets: ieta/iphi map
-    TCanvas *ihf2=getaCanvas("ihf2");
-    // ihf2->Divide(2,1);
-
-    // ihf2->cd(1);
-    TLegend *leg = legend();
-    leg->SetHeader("HB/HE: BX=0 Jets");
-
-    ietaJet_iphiJet_central->Draw("");
-    ietaJet_iphiJet_central->SetTitle(";L1 Jet i#eta;L1 Jet i#phi");
-    ietaJet_iphiJet_hf_central->Draw("SAME");
-
-    //    leg->Draw("SAME");
-
-    //  return;
-    // ihf2->cd(2);
-    // TLegend *leg = legend();
-    // leg->SetHeader("HB/HE: BX=-1 Jets");
-
-    // ietaJet_iphiJet->Draw("ZCOL");
-    // ietaJet_iphiJet->SetTitle(";L1 Jet i#eta;L1 Jet i#phi");
-
-    // leg->Draw("SAME");
-   
-
-    TCanvas *tp2=getaCanvas("tp2");
-    tp2->Divide(2,1);
-
-    tp2->cd(1);
-    etTP_H->Draw("EHIST");
-    etTP_H->SetLineWidth(2); etTP_H->SetTitle(";hcalTP E_{T};a.u");
-    etTP_H->GetXaxis()->SetRangeUser(0.,20.);
-
-    tp2->cd(2);
-    compEtTP_H->Draw("EHIST");
-    compEtTP_H->SetLineWidth(2); compEtTP_H->SetTitle(";hcalTP comp E_{T};a.u");
-    compEtTP_H->GetXaxis()->SetRangeUser(0.,20.);
-
-    // HBHE eta/phi
-    // ----------> Early triggers
-    TCanvas *d1=getaCanvas("d1");
-    d1->Divide(2,1);
-
-    d1->cd(1); 
-    etaJet_e_H->Draw("EHIST"); etaJet_e_H->SetLineWidth(2);
-    etaJet_e_H->SetTitle(";(BX=-1) L1 Jet #eta;a.u.");
-
-    d1->cd(2);
-    phiJet_e_H->Draw("EHIST"); phiJet_e_H->SetLineWidth(2);
-    phiJet_e_H->SetTitle(";(BX=-1) L1 Jet #phi;a.u.");
-
-     // ----------> Central triggers
-    TCanvas *d2=getaCanvas("d2");
-    d2->Divide(2,1);
-
-    d2->cd(1); 
-    etaJet_c_H->Draw("EHIST"); etaJet_c_H->SetLineWidth(2);
-    etaJet_c_H->SetTitle(";(BX=0) L1 Jet #eta;a.u.");
-
-    d2->cd(2);
-    phiJet_c_H->Draw("EHIST"); phiJet_c_H->SetLineWidth(2);
-    phiJet_c_H->SetTitle(";(BX=0) L1 Jet #phi;a.u.");
-
-    // HF
-     // ----------> Early triggers
-    TCanvas *d3=getaCanvas("d3");
-    d3->Divide(2,1);
-
-    d3->cd(1); 
-    etaJetHF_e_H->Draw("EHIST"); etaJetHF_e_H->SetLineWidth(2);
-    etaJetHF_e_H->SetTitle(";(BX=-1) L1 fwdJet #eta;a.u.");
-
-    d3->cd(2);
-    phiJetHF_e_H->Draw("EHIST"); phiJetHF_e_H->SetLineWidth(2);
-    phiJetHF_e_H->SetTitle(";(BX=-1) L1 fwdJet #phi;a.u.");
-
- // ----------> Central triggers
-    TCanvas *d4=getaCanvas("d4");
-    d4->Divide(2,1);
-
-    d4->cd(1); 
-    etaJetHF_c_H->Draw("EHIST"); etaJetHF_c_H->SetLineWidth(2);
-    etaJetHF_c_H->SetTitle(";(BX=0) L1 fwdJet #eta;a.u.");
-
-    d4->cd(2);
-    phiJetHF_c_H->Draw("EHIST"); phiJetHF_c_H->SetLineWidth(2);
-    phiJetHF_c_H->SetTitle(";(BX=0) L1 fwdJet #phi;a.u.");
-
-
-  }
-
-  //  return;
-
-  // Central+Tau Jets
+   // Central+Tau Jets
   TCanvas *c1=getaCanvas("c1");
   c1->Divide(1,2);
 
@@ -802,7 +479,7 @@ void compare_samples(TString sample="Singlemu", TString mode="rate", Bool_t debu
   ptJetHF_c->Draw("EHIST"); 
   ptJetHF2_c->Draw("EHISTSAME");
   ptJetHF2_c->SetLineColor(1); //ptJetHF2_c->SetLineWidth(2);  
-  ptJetHF2_c->SetFillStyle(3002); ptJetHF2_c->SetFillColor(1);
+  //  ptJetHF2_c->SetFillStyle(3002); ptJetHF2_c->SetFillColor(1);
   
 
   ptJetHF_c->SetLineColor(1); ptJetHF_c->SetLineWidth(2);
@@ -818,7 +495,7 @@ void compare_samples(TString sample="Singlemu", TString mode="rate", Bool_t debu
   ptJetHF_e->Draw("EHISTSAME"); 
   ptJetHF2_e->Draw("EHISTSAME");
   ptJetHF2_e->SetLineColor(2);// ptJetHF2_e->SetLineWidth(2); 
-  ptJetHF2_e->SetFillStyle(3002);ptJetHF2_e->SetFillColor(2);
+  //  ptJetHF2_e->SetFillStyle(3002);ptJetHF2_e->SetFillColor(2);
 
   ptJetHF_e->SetLineColor(2);
   ptJetHF_e->SetLineStyle(1); ptJetHF_e->SetLineWidth(2);
@@ -849,7 +526,8 @@ void compare_samples(TString sample="Singlemu", TString mode="rate", Bool_t debu
   r1HF_e->Draw("EHIST");r1HF_e->SetLineColor(4);
   // r1HF_l->Draw("EHISTSAME"); r1HF_l->SetLineColor(4);
   r1HF2_e->Draw("EHISTSAME");  //r1HF2_e->SetLineColor(kBlack-6);
-  r1HF2_e->SetFillColor(4); r1HF2_e->SetLineColor(4); r1HF2_e->SetLineWidth(0.5);
+  //r1HF2_e->SetFillColor(4); 
+  r1HF2_e->SetLineColor(4); r1HF2_e->SetLineWidth(0.5);
 
   r1HF_e->GetYaxis()->SetRangeUser(-0.01,1.0);
 
@@ -871,4 +549,28 @@ void compare_samples(TString sample="Singlemu", TString mode="rate", Bool_t debu
 
   leg->Draw("SAME");
 
+  TCanvas *cf=getanotherCanvas("cf");
+  gPad->SetGridx(); gPad->SetGridy();
+
+   TLegend *leg = legend();
+  leg->AddEntry(r1HF_e,"old PMTs region","LF");
+  leg->AddEntry(r1HF2_e,"upgraded PMTs region","LF");
+
+  r1HF_e->Draw("EHIST");r1HF_e->SetLineColor(4);
+  //  r1HF2_e->SetLineColor(1);
+  r1HF2_e->Draw("EHISTSAME");  //r1HF2_e->SetLineColor(kBlack-6);
+  r1HF2_e->SetLineWidth(2); r1HF2_e->SetLineStyle(2);
+
+
+  r1HF_e->GetXaxis()->SetRangeUser(0.,170.);
+  r1HF_e->GetYaxis()->SetRangeUser(0.001,0.3);
+
+  r1HF_e->GetXaxis()->SetTitleSize(.05);
+  r1HF_e->GetYaxis()->SetTitleSize(.05);
+  r1HF_e->GetXaxis()->SetTitleOffset(1.0);
+  r1HF_e->GetYaxis()->SetTitleOffset(0.6);
+  r1HF_e->GetXaxis()->SetLabelSize(.05);
+  r1HF_e->GetYaxis()->SetLabelSize(.05);
+
+leg->Draw("SAME");
 }
