@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.3.3)  31 MAR 2015 17:53
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.2.2)  1 APR 2015 18:05
 entering extended mode
  %&-line parsing enabled.
 **L1Note.tex
@@ -292,9 +292,6 @@ Underfull \hbox (badness 1264) in paragraph at lines 183--183
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `' on page 7 undefined on input line 194.
-
 <plots/towers_ieta_iphi_2009.png, id=67, 794.97pt x 1228.59pt>
 File: plots/towers_ieta_iphi_2009.png Graphic file (type png)
 
@@ -323,46 +320,50 @@ Underfull \hbox (badness 1264) in paragraph at lines 216--216
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./plots/ptSpectrum_FwdJets_MinBias_runD.png (PNG copy)> <./plots/ptSpectrum
-_FwdJets_SingleMu_runD.png (PNG copy)>]
-<plots/l1Jet_rate_HBHE_SMP_WZ_TSGskim.png, id=74, 497.86pt x 674.52pt>
+<plots/rates_comparison_old-vs-new-PMTs.png, id=71, 497.86pt x 438.63875pt>
+File: plots/rates_comparison_old-vs-new-PMTs.png Graphic file (type png)
+
+<use plots/rates_comparison_old-vs-new-PMTs.png> [7 <./plots/ptSpectrum_FwdJets
+_MinBias_runD.png (PNG copy)> <./plots/ptSpectrum_FwdJets_SingleMu_runD.png (PN
+G copy)>]
+<plots/l1Jet_rate_HBHE_SMP_WZ_TSGskim.png, id=75, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HBHE_SMP_WZ_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HBHE_SMP_WZ_TSGskim.png>
-<plots/l1Jet_rate_HBHE_tt_TSGskim.png, id=75, 497.86pt x 674.52pt>
+<plots/l1Jet_rate_HBHE_tt_TSGskim.png, id=76, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HBHE_tt_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HBHE_tt_TSGskim.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<plots/l1Jet_rate_HBHE_HWW_TSGskim.png, id=76, 497.86pt x 674.52pt>
+<plots/l1Jet_rate_HBHE_HWW_TSGskim.png, id=77, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HBHE_HWW_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HBHE_HWW_TSGskim.png>
-<plots/l1Jet_rate_HBHE_Htautau_TSGskim.png, id=77, 497.86pt x 674.52pt>
+<plots/l1Jet_rate_HBHE_Htautau_TSGskim.png, id=78, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HBHE_Htautau_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HBHE_Htautau_TSGskim.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<plots/l1Jet_rate_HF_SMP_WZ_TSGskim.png, id=78, 497.86pt x 674.52pt>
+<plots/l1Jet_rate_HF_SMP_WZ_TSGskim.png, id=79, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HF_SMP_WZ_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HF_SMP_WZ_TSGskim.png>
-<plots/l1Jet_rate_HF_tt_TSGskim.png, id=79, 497.86pt x 674.52pt>
+<plots/l1Jet_rate_HF_tt_TSGskim.png, id=80, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HF_tt_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HF_tt_TSGskim.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<plots/l1Jet_rate_HF_HWW_TSGskim.png, id=80, 497.86pt x 674.52pt>
+<plots/l1Jet_rate_HF_HWW_TSGskim.png, id=81, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HF_HWW_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HF_HWW_TSGskim.png>
-<plots/l1Jet_rate_HF_Htautau_TSGskim.png, id=81, 497.86pt x 674.52pt>
+<plots/l1Jet_rate_HF_Htautau_TSGskim.png, id=82, 497.86pt x 674.52pt>
 File: plots/l1Jet_rate_HF_Htautau_TSGskim.png Graphic file (type png)
 
 <use plots/l1Jet_rate_HF_Htautau_TSGskim.png>
@@ -374,25 +375,23 @@ gleMu_runD.png (PNG copy)>] [9 <./plots/towers_ieta_iphi_2009.png (PNG copy)> <
 ./plots/upgradedPMTs_regions_in2012.png>]
 No file L1Note.bbl.
 [10 <./plots/oldPMTs_Rate_FwdJets_SingleMu_runD.png (PNG copy)> <./plots/upgrad
-edPMTs_Rate_FwdJets_SingleMu_runD.png (PNG copy)>] [11 <./plots/l1Jet_rate_HBHE
-_SMP_WZ_TSGskim.png (PNG copy)> <./plots/l1Jet_rate_HBHE_tt_TSGskim.png (PNG co
-py)>] [12 <./plots/l1Jet_rate_HBHE_HWW_TSGskim.png (PNG copy)> <./plots/l1Jet_r
-ate_HBHE_Htautau_TSGskim.png (PNG copy)>] [13 <./plots/l1Jet_rate_HF_SMP_WZ_TSG
-skim.png (PNG copy)> <./plots/l1Jet_rate_HF_tt_TSGskim.png (PNG copy)>]
-[14 <./plots/l1Jet_rate_HF_HWW_TSGskim.png (PNG copy)> <./plots/l1Jet_rate_HF_H
-tautau_TSGskim.png (PNG copy)>] (./L1Note.aux)
-
-LaTeX Warning: There were undefined references.
-
+edPMTs_Rate_FwdJets_SingleMu_runD.png (PNG copy)>] [11 <./plots/rates_compariso
+n_old-vs-new-PMTs.png (PNG copy)> <./plots/l1Jet_rate_HBHE_SMP_WZ_TSGskim.png (
+PNG copy)> <./plots/l1Jet_rate_HBHE_tt_TSGskim.png (PNG copy)>] [12 <./plots/l1
+Jet_rate_HBHE_HWW_TSGskim.png (PNG copy)> <./plots/l1Jet_rate_HBHE_Htautau_TSGs
+kim.png (PNG copy)>] [13 <./plots/l1Jet_rate_HF_SMP_WZ_TSGskim.png (PNG copy)> 
+<./plots/l1Jet_rate_HF_tt_TSGskim.png (PNG copy)>] [14 <./plots/l1Jet_rate_HF_H
+WW_TSGskim.png (PNG copy)> <./plots/l1Jet_rate_HF_Htautau_TSGskim.png (PNG copy
+)>] (./L1Note.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1749 strings out of 256216
- 24117 string characters out of 1917073
+ 1754 strings out of 256216
+ 24347 string characters out of 1917073
  76751 words of memory out of 1500000
- 5003 multiletter control sequences out of 10000+200000
+ 5007 multiletter control sequences out of 10000+200000
  23634 words of font info for 51 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  30i,14n,24p,649b,365s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -405,9 +404,9 @@ cmsy8.pfb></usr/share/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texm
 f/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/u
 tmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on L1Note.pdf (15 pages, 838317 bytes).
+Output written on L1Note.pdf (15 pages, 852447 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
+ 145 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

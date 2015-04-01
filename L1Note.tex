@@ -191,7 +191,7 @@ A pre-firing rate is also evaluated for L1jets in the Forward Calorimeter. As in
 With this information, we were able to get a low statistics test of what to expect in 2015 running. The expected reduction factors seemed to be from factor of 2 to factor of 5 or more, as have been mentioned by HCAL experts.
 In our case, we made an attempt to extend the expected performance with the upgraded HF, at higher trigger energies. For this, we used the single muon dataset and compared the pre-firing rate in the region of the new PMTs ( $i \phi=43$~HF-) versus the rate in the region of other PMTs (e.g. here used  $i \phi=39$~HF-). This is shown separately for the two cases in figures~\ref{fig:oldpmts} and~\ref{fig:newpmts}. 
 
-A direct comparison is given by the ratio of the two pre-firing rates as shown in fig.~\ref{}, indicating a lower limit on the expected improvement with a reduction factor of X for jet \pt~thresholds greater than 100~GeV\footnote{The L1jets are much bigger than the area of the new PMTs, so the upgraded performance shown in fig.~\ref{fig:newpmts} comes from  a mixture of the old and new PMTs.}.
+A direct comparison is given by the ratio of the two pre-firing rates as shown in fig.~\ref{fig:imp}, indicating a lower limit on the expected improvement with a reduction factor of $3-4$ for jet \pt~thresholds greater than 100~GeV\footnote{The L1jets are much bigger than the area of the new PMTs, so the upgraded performance shown in fig.~\ref{fig:newpmts} comes from  a mixture of the old and new PMTs.}.
 
 \begin{figure}
 \centering
@@ -213,14 +213,21 @@ A direct comparison is given by the ratio of the two pre-firing rates as shown i
 \resizebox{1.\linewidth}{0.45\height}{\includegraphics{plots/oldPMTs_Rate_FwdJets_SingleMu_runD.png}} &
 \resizebox{1.\linewidth}{0.45\height}{\includegraphics{plots/upgradedPMTs_Rate_FwdJets_SingleMu_runD.png}} \\
 \caption{Level-1 Jet rate in the Forward Calorimeter, for central (black) and out-of-time (red) candidates in ``single muon'' events with the 2012 runD dataset. L1 jets fall into regions with $i \phi=39$ HF- (old PMTs region).}\label{fig:oldpmts} &
-\caption{Level-1 Jet rate in the Forward Calorimeter, for central (black) and out-of-time (red) candidates in ``single muon'' events with the 2012 runD dataset. L1 jets fall into regions with $i \phi=43$ HF- (i.e. regions where upgraded PMTs were installed).}\label{fig:newpmts}
+\caption{Level-1 Jet rate in the Forward Calorimeter, for central (black) and out-of-time (red) candidates in ``single muon'' events with the 2012 runD dataset. L1 jets fall into regions with $i \phi=43$ HF- (regions with upgraded PMTs).}\label{fig:newpmts}
 \end{2figures}
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{plots/rates_comparison_old-vs-new-PMTs.png}
+\caption{Prefiring rates comparison for L1jets falling into $i \phi=39$ HF- (old PMTs region) shown in solid blue, and $i \phi=43$ HF- (i.e. regions with upgraded PMTs) shown in dashed blue. }
+\label{fig:imp} 
+\end{figure}
+ 
 %Upgraded PMTs analysis: iphi=43 L1 HFjets only. Need to know that 4x4 trigger towers=1 calorimeter region. h/phi of jet is in the centre of a calo region.
 
 \newpage
 \section{Performance with TSG physics skims}
 
-We finally looked at the effect of pre-firing in some 2012D physics skim provided by the CMS Trigger Studies Group (TSG)~\cite{tsg}. The physics samples used for this analysis include events with W/Z decaying to leptons, $t \bar{t}$ events, $H \rightarrow WW$ as well as $H \rightarrow \tau\tau$ events. All events come from 2012D datasets selected based on some pre-defined trigger paths which enchance the signal events.
+We finally looked at the effect of pre-firing in some 2012D physics skims provided by the CMS Trigger Studies Group (TSG)~\cite{tsg}. The physics samples used for this analysis include events with W/Z decaying to leptons, $t \bar{t}$ events, $H \rightarrow WW$ as well as $H \rightarrow \tau\tau$ events. All events come from 2012D datasets selected based on some pre-defined trigger paths which enchance the signal events.
 
 Figures~\ref{fig:p1_hbhe},~\ref{fig:p2_hbhe},~\ref{fig:p3_hbhe} and~\ref{fig:p4_hbhe} show the prefiring rates in HBHE regions, whereas figures~\ref{fig:p1_hf},~\ref{fig:p2_hf},~\ref{fig:p3_hf} and~\ref{fig:p4_hf} show the prefiring rates in HF. From the above we conclude that the pre-firing effect has been shown to be negligible for pure physics samples.
 
